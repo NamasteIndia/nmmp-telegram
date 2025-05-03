@@ -11,9 +11,12 @@
 
 下载[vm-protect.jar](https://github.com/maoabc/nmmp/releases/download/last/vm-protect-2023-07-08-0942.jar),配置好环境变量ANDROID_SDK_HOME、ANDROID_NDK_HOME:
 ``` bash
-export ANDROID_SDK_HOME=/opt/android-sdk
-export ANDROID_NDK_HOME=/opt/android-sdk/ndk/22.1.7171670
-export CMAKE_PATH=/opt/android-sdk/cmake/3.18.1/   #可选，不配置的话直接使用/bin/cmake
+export ANDROID_HOME=/root/android-sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/build-tools/34.0.4
+export PATH=$PATH:$ANDROID_HOME/ndk/24.0.8215888
+export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/24.0.8215888
 ```
 + apk加固
   
@@ -50,6 +53,8 @@ git clone https://github.com/maoabc/nmmp.git
 cd nmmp/nmm-protect
 ./gradlew arsc:build
 ./gradlew build
+cd build/libs
+mv vm-protect-xxx.jar protect.jar ##Rename to protect.jar
 ```
 成功后会在build/libs生成可直接执行的fatjar。
 + 需要转换的类和方法规则
