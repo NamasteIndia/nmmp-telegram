@@ -1,3 +1,48 @@
+Installation Guide
+Prerequisites
+Python: Make sure you have Python 3.7 or higher installed on your system. You can download Python from python.org.
+Java: Make sure Java is installed on your system since the script involves executing a .jar file. You can download Java from Oracle's website or use OpenJDK.
+Step 1: Install Required Libraries
+Open your terminal (Command Prompt, PowerShell, or Terminal) and install required Python packages using pip:
+``` bash
+pip install pyrogram TgCrypto
+```
+Step 2: Obtain API Credentials
+Create a new bot on Telegram:
+Message @BotFather on Telegram.
+Use the command /newbot and follow the instructions. Save the provided API token.
+Obtain your API ID and API Hash:
+Go to the Telegram API development tools.
+Log in with your phone number and then create a new application. Note down your API ID and API hash.
+Step 3: Modify the Script
+Download the script to your local machine.
+Open the script file in your favorite text editor.
+Replace YOUR_OWNER_USER_ID with your actual Telegram user ID. You can find your user ID by using a bot that returns your user ID, such as @userinfobot.
+Ensure that the paths for JAR_PATH, RULES_FILE, and MAPPING_FILE are correctly set based on your environment.
+Step 4: Run the JAR File
+Make sure the JAR file you intend to use (protect.jar) is placed in the path you defined in JAR_PATH. Ensure that it is executable and that you have the required permissions.
+
+Step 5: Run the Script
+Open a terminal in the directory where your script is located.
+Run the script using the following command:
+``` bash
+python protect.py
+```
+Replace your_script_name.py with the actual filename of your Python script.
+
+Step 6: Interact with the Bot
+Open your Telegram app and locate your bot by its name.
+Start a chat with the bot and upload the APK file along with the required convertRules.txt file to process it.
+Additional Notes
+Dependencies: Make sure that all dependencies (Python packages and Java) are properly installed and that you can execute Java commands via terminal/command line.
+Permissions: Depending on your operating system, you might need to grant appropriate permissions to access the directory where the script and files are located.
+Output Directory: Ensure that the BUILD_OUTPUT_DIR specified in the script is writable by the bot. If needed, change the permissions accordingly.
+Troubleshooting
+If you encounter errors about missing modules, confirm that you have installed all required Python packages.
+If the bot does not respond, check the API token and ensure it's correct.
+Review permissions if the bot cannot write to directories.
+Always check for errors printed in the console to help with troubleshooting issues.
+
 # nmmp
 基于dex-vm运行dalvik字节码从而对dex进行保护，增加反编译难度。
 项目分为两部分nmm-protect是纯java项目，对dex进行转换，把dex里数据转为c结构体，opcode随机化生成ndk项目,编译后生成加固后的apk。nmmvm是一个安卓项目，包含dex-vm实现及各种dalvik指令的测试等。
